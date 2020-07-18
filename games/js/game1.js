@@ -43,11 +43,11 @@ function firstStep()
 function computerPaddleMovement()
 {
 	paddleCentre=paddle2Y+(Paddle_height/2);
-	if(ballY-35>paddleCentre)
+	if(ballY-20>paddleCentre)
 	{
 		paddle2Y+=15;
 	}
-	if(ballY+35<paddleCentre)
+	if(ballY+20<paddleCentre)
 	{
 		paddle2Y-=15;
 	}
@@ -61,6 +61,7 @@ function ballReset()
 }
 function moveEverything()
 {
+	if(ballSpeedX>=0 && ballX>=canvas.width/2)
 	computerPaddleMovement();
 	ballX+=ballSpeedX;
 	if(ballX-10<0)
@@ -127,9 +128,9 @@ function drawEverything()
 	canvasContext.arc(ballX,ballY,7,0,Math.PI*2,true);
 	canvasContext.fill();
 	canvasContext.fillStyle = 'red';
-	canvasContext.font = "20px Arial";
-	canvasContext.fillText(Player_Score,100,100);
-	canvasContext.fillText(Computer_Score,canvas.width-100,100);
+	canvasContext.font = "50px Arial";
+	canvasContext.fillText(Player_Score,200,300);
+	canvasContext.fillText(Computer_Score,canvas.width-200,300);
 	drawNet();
 }
 function colorRect(leftX,topY,width,height,drawColor)
